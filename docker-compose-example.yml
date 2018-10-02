@@ -1,0 +1,17 @@
+version: "3.2"
+services:
+  frauddetection:
+    #build: .
+    image: subigya/keras-flask-gunicorn-tf:0.4
+    environment:
+      - APP_DIR=/app
+      - APP_CONFIG=development_config.py
+      - APP_MODULE=frauddetect.server
+      - APP_NAME=app
+    volumes:
+      - /home/subigya/Projects/FraudDetection:/app
+    expose:
+      - 8000
+    ports:
+      - "5000:8000"
+    command: gunicorn -c /app/gunicorn.py.ini frauddetect.server:app

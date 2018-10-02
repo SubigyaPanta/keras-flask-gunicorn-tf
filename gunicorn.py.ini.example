@@ -1,0 +1,14 @@
+"""gunicorn WSGI server configuration."""
+from multiprocessing import cpu_count
+
+def max_workers():    
+    return cpu_count()
+
+bind = '0.0.0.0:5000'
+max_requests = 100
+timeout = 90
+worker_class = 'gevent'
+worker_connections = 500
+workers = max_workers()
+preload = True
+reload = True
