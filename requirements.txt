@@ -16,7 +16,7 @@ seaborn==0.9.0
 scikit-learn==0.19.2
 
 # DeepLearning tools
-tensorflow==1.10.0
+tensorflow==2.6.4
 tensorboard==1.10.0
 Keras==2.2.2
 
